@@ -1,0 +1,33 @@
+@use "./base.scss" as base;
+
+@mixin normalFlex($justify: space-between, $items: center) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $items;
+}
+
+@mixin inlineBlockInit() {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@mixin changeBC($bc: base.$info-2) {
+  background-color: $bc;
+}
+
+@mixin buttonDefaultSize() {
+  padding: base.$defaultColumnaWidth base.$defaultRowWidth;
+}
+
+@mixin buttonSmallSize() {
+  padding: base.$smallColumnaWidth base.$smallRowWidth;
+}
+
+@mixin buttonLargeSize() {
+  padding: base.$largeColumnaWidth base.$largeRowWidth;
+}
+
+@mixin plainBGWithColor($color: base.$primary, $bg: Transparent) {
+  color: $color;
+  background-color: $bg;
+}

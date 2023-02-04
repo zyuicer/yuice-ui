@@ -1,0 +1,10 @@
+@use "./border.scss" as border;
+@use "./background.scss" as background;
+@use "./font.scss" as font;
+@use "./base.scss" as base;
+@use "./variable.scss" as variable;
+.yu-header {
+  width: 100%;
+  @include variable.normalFlex(center, center);
+  @include variable.changeBC(base.$primary-2);
+}

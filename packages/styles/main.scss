@@ -1,0 +1,7 @@
+@use "./variable.scss" as variable;
+@use "./base.scss" as base;
+.yu-main {
+  flex: 1;
+  @include variable.normalFlex(center, center);
+  @include variable.changeBC(base.$primary-3);
+}

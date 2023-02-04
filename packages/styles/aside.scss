@@ -1,0 +1,8 @@
+@use "./base.scss" as base;
+@use "./variable.scss" as variable;
+
+.yu-aside {
+  width: var(--yu-aside-width, 100px);
+  @include variable.normalFlex(center, center);
+  @include variable.changeBC(base.$primary);
+}

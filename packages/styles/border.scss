@@ -1,0 +1,17 @@
+// border color
+$darkerBorder: #cdd0d6;
+$darkBorder: #d4d7de;
+$baseBorder: #dcdfe6;
+$lightBorder: #e4e7ed;
+$lighterBorder: #ebeef5;
+$extraLightBorder: #f2f6fc;
+
+// boder radius
+$normalRadius: 8px;
+@mixin b($color: $darkerBorder, $size: 1px, $style: solid) {
+  border: $size $style $color;
+}
+
+@mixin radius($radiusSize: $normalRadius) {
+  border-radius: $radiusSize;
+}

@@ -1,0 +1,57 @@
+@use "./init.scss" as *;
+// color
+$primary: #409eff;
+// active
+$primary-1: #337ecc;
+// mouseover
+$primary-2: #79bbff;
+// plain mouseover
+$primary-3: #c6e2ff;
+
+$success: #67c23a;
+// active
+$success-1: #529b2e;
+// mouseover
+$success-2: #95d475;
+// plain mouseover
+$success-3: #d1edc4;
+
+$warning: #e6a23c;
+// active
+$warning-1: #b88230;
+// mouseover
+$warning-2: #eebe77;
+// plain mouseover
+$warning-3: #f8e3c5;
+
+$danger: #f56c6c;
+// active
+$danger-1: #c45656;
+// mouseover
+$danger-2: #f89898;
+// plain mouseover
+$danger-3: #fcd3d3;
+
+$info: #909399;
+// active
+$info-1: #73767a;
+// mouseover
+$info-2: #b1b3b8;
+// plain mouseover
+$info-3: #dedfe0;
+
+// size
+$defaultHeight: 49px;
+$defaultWidth: 100px;
+$defaultColumnaWidth: 8px;
+$defaultRowWidth: 15px;
+
+$smallHeight: 30px;
+$smallWidth: 80px;
+$smallColumnaWidth: 6px;
+$smallRowWidth: 15px;
+
+$largeHeight: 30px;
+$largeWidth: 80px;
+$largeColumnaWidth: 10px;
+$largeRowWidth: 15px;

@@ -1,0 +1,32 @@
+@use "./border.scss" as border;
+@use "./background.scss" as background;
+@use "./font.scss" as font;
+@use "./base.scss" as base;
+@use "./variable.scss" as variable;
+// base
+.yu-avatar {
+  overflow: hidden;
+  cursor: pointer;
+  @include variable.inlineBlockInit();
+  @include border.b(background.$transparent);
+  @include border.radius();
+  .content {
+    width: 100%;
+    height: 100%;
+    background-color: border.$darkBorder;
+    color: font.$normalText;
+    font-weight: bold;
+    @include variable.normalFlex(center);
+    > img {
+      width: 100%;
+    }
+  }
+}
+// shape
+.yu-avatar--circle {
+  @include border.radius(50%);
+}
+
+.yu-avatar--square {
+  @include border.radius(10%);
+}

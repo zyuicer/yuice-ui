@@ -1,0 +1,81 @@
+$oneSpanWidth: 4.16666667%;
+.yu-col {
+  height: 100%;
+}
+.yu-col-1 {
+  flex: 0 0 $oneSpanWidth;
+}
+.yu-col-2 {
+  flex: 0 0 calc($oneSpanWidth * 2);
+}
+.yu-col-3 {
+  flex: 0 0 calc($oneSpanWidth * 3);
+}
+
+.yu-col-4 {
+  flex: 0 0 calc($oneSpanWidth * 4);
+}
+
+.yu-col-5 {
+  flex: 0 0 calc($oneSpanWidth * 5);
+}
+
+.yu-col-6 {
+  flex: 0 0 25%;
+}
+
+.yu-col-7 {
+  flex: 0 0 calc($oneSpanWidth * 7);
+}
+.yu-col-8 {
+  flex: 0 0 calc($oneSpanWidth * 8);
+}
+.yu-col-9 {
+  flex: 0 0 calc($oneSpanWidth * 9);
+}
+.yu-col-10 {
+  flex: 0 0 calc($oneSpanWidth * 10);
+}
+.yu-col-11 {
+  flex: 0 0 calc($oneSpanWidth * 11);
+}
+
+.yu-col-12 {
+  flex: 0 0 50%;
+}
+.yu-col-13 {
+  flex: 0 0 calc($oneSpanWidth * 13);
+}
+.yu-col-14 {
+  flex: 0 0 calc($oneSpanWidth * 14);
+}
+.yu-col-15 {
+  flex: 0 0 calc($oneSpanWidth * 15);
+}
+.yu-col-16 {
+  flex: 0 0 calc($oneSpanWidth * 16);
+}
+.yu-col-17 {
+  flex: 0 0 calc($oneSpanWidth * 17);
+}
+.yu-col-18 {
+  flex: 0 0 75%;
+}
+.yu-col-19 {
+  flex: 0 0 calc($oneSpanWidth * 19);
+}
+.yu-col-20 {
+  flex: 0 0 calc($oneSpanWidth * 20);
+}
+.yu-col-21 {
+  flex: 0 0 calc($oneSpanWidth * 21);
+}
+.yu-col-22 {
+  flex: 0 0 calc($oneSpanWidth * 22);
+}
+.yu-col-23 {
+  flex: 0 0 calc($oneSpanWidth * 23);
+}
+.yu-col-24 {
+  flex: 0 0 100%;
+}

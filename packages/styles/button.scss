@@ -1,0 +1,215 @@
+@use "./border.scss" as border;
+@use "./background.scss" as background;
+@use "./font.scss" as font;
+@use "./base.scss" as base;
+@use "./variable.scss" as variable;
+
+// base
+.yu-button {
+  transition: all 0.2s ease;
+  user-select: none;
+  font-weight: 500;
+  cursor: pointer;
+  @include variable.inlineBlockInit();
+  @include border.radius();
+}
+// type
+.yu-button--info {
+  color: font.$normalText;
+  background-color: base.$info;
+  @include border.b();
+  &:hover {
+    @include variable.changeBC(base.$info-2);
+  }
+  &:focus {
+    @include variable.changeBC(base.$info-2);
+  }
+  &:active {
+    @include variable.changeBC(base.$info-1);
+  }
+}
+.yu-button--success {
+  color: font.$normalText;
+  background-color: base.$success;
+  @include border.b(border.$baseBorder);
+  &:hover {
+    @include variable.changeBC(base.$success-2);
+  }
+  &:focus {
+    @include variable.changeBC(base.$success-2);
+  }
+  &:active {
+    @include variable.changeBC(base.$success-1);
+  }
+}
+
+.yu-button--primary {
+  color: font.$normalText;
+  background-color: base.$primary;
+  @include border.b(border.$baseBorder);
+  &:hover {
+    @include variable.changeBC(base.$primary-2);
+  }
+  &:focus {
+    @include variable.changeBC(base.$primary-2);
+  }
+  &:active {
+    @include variable.changeBC(base.$primary-1);
+  }
+}
+.yu-button--danger {
+  color: font.$normalText;
+  background-color: base.$danger;
+  @include border.b(border.$baseBorder);
+  &:hover {
+    @include variable.changeBC(base.$danger-2);
+  }
+  &:focus {
+    @include variable.changeBC(base.$danger-2);
+  }
+  &:active {
+    @include variable.changeBC(base.$danger-1);
+  }
+}
+
+.yu-button--warning {
+  color: font.$normalText;
+  background-color: base.$warning;
+  @include border.b(border.$baseBorder);
+  &:hover {
+    @include variable.changeBC(base.$warning-2);
+  }
+  &:focus {
+    @include variable.changeBC(base.$warning-2);
+  }
+  &:active {
+    @include variable.changeBC(base.$warning-1);
+  }
+}
+
+.yu-button--normal {
+  color: font.$regularText;
+  @include border.b();
+  @include variable.changeBC(background.$transparent);
+  &:hover {
+    color: base.$primary;
+    @include variable.changeBC(base.$primary-3);
+  }
+  &:focus {
+    color: base.$primary;
+    @include variable.changeBC(base.$primary-3);
+  }
+  &:active {
+    @include variable.changeBC(base.$primary-1);
+  }
+}
+
+// plain
+.yu-button-is-plain {
+  color: font.$regularText;
+
+  &.yu-button--normal {
+    @include variable.plainBGWithColor(
+      font.$regularText,
+      background.$transparent
+    );
+    &:hover {
+      @include border.b(base.$primary);
+    }
+    &:focus {
+      @include border.b(base.$primary);
+      @include variable.changeBC(base.$primary-3);
+    }
+    &:active {
+      @include variable.changeBC(base.$primary-1);
+    }
+  }
+
+  &.yu-button--primary {
+    @include variable.plainBGWithColor(base.$primary, base.$primary-3);
+    &:hover {
+      color: font.$normalText;
+      @include variable.changeBC(base.$primary);
+    }
+    &:focus {
+      color: font.$normalText;
+      @include variable.changeBC(base.$primary);
+    }
+    &:active {
+      @include variable.changeBC(base.$primary-1);
+    }
+  }
+
+  &.yu-button--success {
+    @include variable.plainBGWithColor(base.$success, base.$success-3);
+    &:hover {
+      color: font.$normalText;
+      @include variable.changeBC(base.$success);
+    }
+    &:focus {
+      color: font.$normalText;
+      @include variable.changeBC(base.$success);
+    }
+    &:active {
+      @include variable.changeBC(base.$success-1);
+    }
+  }
+
+  &.yu-button--info {
+    @include variable.plainBGWithColor(base.$info, base.$info-3);
+    &:hover {
+      color: font.$normalText;
+      @include variable.changeBC(base.$info);
+    }
+    &:focus {
+      color: font.$normalText;
+      @include variable.changeBC(base.$info);
+    }
+    &:active {
+      @include variable.changeBC(base.$info-1);
+    }
+  }
+
+  &.yu-button--danger {
+    @include variable.plainBGWithColor(base.$danger, base.$danger-3);
+    &:hover {
+      color: font.$normalText;
+      @include variable.changeBC(base.$danger);
+    }
+    &:focus {
+      color: font.$normalText;
+      @include variable.changeBC(base.$danger);
+    }
+    &:active {
+      @include variable.changeBC(base.$danger-1);
+    }
+  }
+
+  &.yu-button--warning {
+    @include variable.plainBGWithColor(base.$warning, base.$warning-3);
+    &:hover {
+      color: font.$normalText;
+      @include variable.changeBC(base.$warning);
+    }
+    &:focus {
+      color: font.$normalText;
+      @include variable.changeBC(base.$warning);
+    }
+    &:active {
+      @include variable.changeBC(base.$warning-1);
+    }
+  }
+}
+
+// size
+.yu-button-default {
+  @include variable.buttonDefaultSize();
+}
+
+.yu-button-small {
+  @include variable.buttonSmallSize();
+}
+
+.yu-button-large {
+  @include variable.buttonLargeSize();
+}
