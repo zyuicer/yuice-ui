@@ -19,7 +19,7 @@
     <YuFooter>footer</YuFooter>
   </YuContainer>
   <div style="background-color: peru">
-    <YuCarousel height="400px" :initialIndex="1" indicatorPosition="outside">
+    <YuCarousel height="400px" :initialIndex="1" @change="onChange">
       <YuCarouselItem>
         <img
           src="https://img2.baidu.com/it/u=1395980100,2999837177&fm=253&fmt=auto&app=120&f=JPEG?w=1200&h=675"
@@ -40,6 +40,11 @@
       </YuCarouselItem>
     </YuCarousel>
   </div>
+  <div class="test-image">
+    <YuImage
+      src="https://img2.baidu.com/it/u=1395980100,2999837177&fm=253&fmt=auto&app=120&f=JPEG?w=1200&h=675"
+    />
+  </div>
 </template>
 <script>
 import {
@@ -53,9 +58,8 @@ import {
   YuAside,
   YuCarousel,
   YuCarouselItem,
-  YuIcon
+  YuImage
 } from "../lib";
-import ArrowLeft from "../yu-icon/arrowLeft";
 export default {
   components: {
     YuButton: YuButton,
@@ -68,15 +72,19 @@ export default {
     YuMain,
     YuAside,
     YuCarousel,
+    YuImage,
     YuCarouselItem
   },
   setup() {
     const handlerTest = () => {
       console.log("ok");
     };
-
+    function onChange(num, pre) {
+      console.log(num, pre);
+    }
     return {
-      handlerTest
+      handlerTest,
+      onChange
     };
   }
 };

@@ -48,7 +48,6 @@ const container = defineComponent({
         flexDirection: yuDirection === "vertical" ? "column" : "row"
       };
     });
-    console.log(lineStyle.value);
 
     return () => (
       <div class="yu-container" style={lineStyle.value}>

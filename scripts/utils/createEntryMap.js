@@ -4,7 +4,6 @@ export function createEntry(isProduction = false, pkgName, options = {}) {
   const { entryPath, RegExp } = options;
 
   const currentPath = isProduction ? resolvePackagePath(pkgName) : null;
-  console.log(currentPath);
 
   const paths = isProduction ? readdirSync(currentPath) : [];
   const excludeReg =
@@ -25,6 +24,5 @@ export function createEntry(isProduction = false, pkgName, options = {}) {
     : {
         main: "./src/main.js"
       };
-  console.log(entry);
   return entry;
 }

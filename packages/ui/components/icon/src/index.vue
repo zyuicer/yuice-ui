@@ -29,8 +29,6 @@ const newPrps: IconProps = {
   size: sizeVal.value,
   color: colorVal.value
 };
-onMounted(() => {
-  console.log("icon");
-});
+
 useIcon(newPrps);
 </script>

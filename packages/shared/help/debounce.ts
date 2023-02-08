@@ -8,8 +8,6 @@ export function debounce(
   function _debounce(this: any, ...args) {
     if (timer) clearTimeout(timer);
     if (isLeading) {
-      console.log('intur');
-      
       fn.apply(this, args);
       isLeading = false;
       return;

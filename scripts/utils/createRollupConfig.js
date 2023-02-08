@@ -64,7 +64,6 @@ export const createRollupConfigList = (optioins = {}) => {
   for (const item of _filenameList) {
     if (regExp.test(item)) {
       const name = item.replace(regExp, "");
-      console.log(name);
       configList.push(
         // 是否使用自定义的 createConfig
         onCreateConfig

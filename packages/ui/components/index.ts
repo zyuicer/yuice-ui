@@ -10,3 +10,5 @@ export * from "./footer";
 export * from "./carousel";
 export * from "./carousel-item";
 export * from "./icon";
+export * from "./alert";
+export * from "./image";

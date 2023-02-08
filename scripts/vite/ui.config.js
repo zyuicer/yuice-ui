@@ -53,9 +53,10 @@ export default defineConfig({
     generateJson({
       inputFolder: pkgPath,
       outFolder: baseDistPath,
-      baseContents: ({ name, description, version }) => ({
-        name,
+      baseContents: ({ description, version }) => ({
+        name: "yuice-ui",
         version,
+        main: "index.js",
         description
       })
     })

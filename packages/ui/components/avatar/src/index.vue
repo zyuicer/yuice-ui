@@ -47,7 +47,6 @@ export default defineComponent({
   },
   setup(props) {
     const onError = function (event: any) {
-      console.log(event);
       event.target.src =
         "	https://cube.elemecdn.com/e/fd/0fc7d20532fdaf769a25683617711png.png";
     };

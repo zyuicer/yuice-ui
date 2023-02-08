@@ -2,7 +2,7 @@
   <div
     class="yu-carousel"
     :style="[yuTransitionInterval, lineStyle]"
-    @mouseenter.stop="containerHover"
+    @mouseenter.stop="containerEnter"
     @mouseleave.stop="containerLeave"
   >
     <Transition v-if="arrowDisplay" name="carousel-arrow-left">
@@ -44,7 +44,6 @@
         <template v-for="(item, index) in markList" :key="index">
           <li
             @mouseenter.stop="hoverOrClickIndicator(index)"
-            @mouseleave="containerLeave"
             class="yu-indicator-item"
           >
             <i
@@ -61,7 +60,6 @@
       <template v-for="(item, index) in markList" :key="index">
         <li
           @mouseenter.stop="hoverOrClickIndicator(index)"
-          @mouseleave.stop="containerLeave"
           class="yu-indicator-item"
         >
           <i
@@ -100,7 +98,7 @@ const {
   indicatorPositionClass,
   preClick,
   nextClick,
-  containerHover,
+  containerEnter,
   hoverOrClickIndicator,
   containerLeave
 } = useCarousel(props, emit, defaultFn!(), "YuCarouselItem");

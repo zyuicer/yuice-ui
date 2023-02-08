@@ -3,23 +3,15 @@ import {
   computed,
   ref,
   unref,
-  useSlots,
-  Component,
-  getCurrentInstance,
   VNode,
-  VNodeNormalizedChildren,
-  isVNode,
   provide,
-  ComponentInternalInstance,
   Ref,
-  CSSProperties,
   RendererNode,
   RendererElement
 } from "vue";
 import { CarouselEmitsType, CarouselPropsType } from "./carousel";
 import { CAROUSEL_PROVIDE_KEY } from "shared";
 import { CarouselTransitionMark } from "@ui/types/carsouel.type";
-import { debounce } from "shared/help/debounce";
 import { throttle } from "shared/help/throttle";
 
 // hooks
@@ -93,10 +85,10 @@ export function useCarousel(
   }
 
   // 调用 添加元素标记
-  function addItem(markFlag: Ref<CarouselTransitionMark>) {
+  function addMarkItem(markFlag: Ref<CarouselTransitionMark>) {
     markList.value.push(markFlag);
     if (slotsLength.value && slotsLength.value === markList.value.length) {
-      console.log("initial");
+      ("initial");
       activeIndex.value = props.initialIndex;
       const fistItem = markList.value[activeIndex.value];
 
@@ -109,18 +101,18 @@ export function useCarousel(
 
   function initialInterval() {
     timer.value = setInterval(() => {
-      console.log(activeIndex.value);
-
       nextClick();
     }, props.interval);
   }
 
   function stopInterval() {
-    if (timer.value) clearInterval(timer.value);
-    timer.value = null;
+    if (timer.value) {
+      clearInterval(timer.value);
+      timer.value = null;
+    }
   }
 
-  function containerHover() {
+  function containerEnter() {
     if (arrowDisplay.value) hover.value = true;
     if (props.pauseOnHover) {
       stopInterval();
@@ -135,13 +127,12 @@ export function useCarousel(
   }
 
   function nextClick() {
-    isNext.value = true;
-    cutClick(activeIndex.value + 1);
+    changeActiveIndexWithIsNextRefValue(activeIndex.value + 1, true);
+    cutClick(activeIndex.value);
   }
   function preClick() {
-    isNext.value = false;
-    cutClick(activeIndex.value - 1);
-    console.log(markList.value);
+    changeActiveIndexWithIsNextRefValue(activeIndex.value - 1, false);
+    cutClick(activeIndex.value);
   }
   const _nextClick = throttle(
     () => {
@@ -165,28 +156,40 @@ export function useCarousel(
   function lazyPreClick() {
     _preClick();
   }
+  function onChange(num: number, pre: number) {
+    emit("change", num, pre);
+  }
 
+  let preIndex = props.initialIndex;
   function cutClick(index: number) {
     setActiveItem(index);
+    onChange(activeIndex.value, preIndex);
     const currentItem = markList.value[activeIndex.value];
     if (oldItem.value) {
       oldItem.value.value.flag = false;
     }
     currentItem.value.flag = true;
     oldItem.value = currentItem;
+    preIndex = activeIndex.value;
   }
 
   function hoverOrClickIndicator(index: number) {
-    containerHover();
+    stopInterval();
     if (index > activeIndex.value) {
-      nextClick();
+      changeActiveIndexWithIsNextRefValue(index, true);
+      cutClick(activeIndex.value);
     } else if (index < activeIndex.value) {
-      preClick();
+      changeActiveIndexWithIsNextRefValue(index, false);
+      cutClick(activeIndex.value);
     }
   }
 
+  function changeActiveIndexWithIsNextRefValue(index: number, next: boolean) {
+    isNext.value = next;
+    activeIndex.value = index;
+  }
   provide(CAROUSEL_PROVIDE_KEY, {
-    addItem,
+    addItem: addMarkItem,
     isNext,
     isStart,
     transitionInterval
@@ -200,7 +203,7 @@ export function useCarousel(
     indicatorPositionClass,
     nextClick: lazyNextClick,
     preClick: lazyPreClick,
-    containerHover,
+    containerEnter,
     hoverOrClickIndicator,
     containerLeave
   };

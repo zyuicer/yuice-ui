@@ -14,5 +14,4 @@
 <script setup lang="ts">
 import { useIconProps } from "@yu-icon/baseProps";
 const props = useIconProps();
-console.log(props);
 </script>
