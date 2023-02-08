@@ -11,5 +11,6 @@ import "../lib/styles/main.css";
 import "../lib/styles/aside.css";
 import "../lib/styles/carousel.css";
 import "../lib/styles/carousel-item.css";
+import "../lib/styles/icon.css";
 const app = createApp(App);
 app.mount("#app");

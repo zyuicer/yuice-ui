@@ -1,3 +1,22 @@
 div {
   box-sizing: border-box;
 }
+ul,
+li,
+ol {
+  list-style: none;
+  line-height: 1.7;
+}
+@mixin initTransfromLeftWithTop($left: 0px, $top: 0px) {
+  position: absolute;
+  left: $left;
+  top: $top;
+  transform: translateY(-50%);
+}
+
+@mixin initTransfromRightWithTop($right: 0px, $top: 0px) {
+  position: absolute;
+  right: $right;
+  top: $top;
+  transform: translateY(-50%);
+}

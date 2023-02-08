@@ -18,7 +18,6 @@
 import { computed, defineComponent } from "vue";
 import type { PropType, CSSProperties } from "vue";
 import type { ShapeOptions, ImgFitOptions } from "../../../types/base.type";
-
 // utils
 
 // type

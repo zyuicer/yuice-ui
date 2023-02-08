@@ -9,3 +9,4 @@ export * from "./container";
 export * from "./footer";
 export * from "./carousel";
 export * from "./carousel-item";
+export * from "./icon";

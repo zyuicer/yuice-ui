@@ -1,5 +1,34 @@
 // base
+$delay: 0.35s;
 .yu-carousel-item {
   height: 100%;
   width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  transform: translateX(0%);
+  transition: all var(--yu-carousel-item-transition, $delay) linear;
+  // transition: all 0.2s linear;
+}
+
+.carousel-item-next-enter-from {
+  transform: translateX(100%);
+  opacity: 1;
+}
+
+.carousel-item-next-leave-to {
+  transform: translateX(-100%);
+  opacity: 1;
+}
+
+.carousel-item-pre-enter-from {
+  transform: translateX(-100%);
+  opacity: 1;
+}
+
+.carousel-item-pre-leave-to {
+  transform: translateX(100%);
+  opacity: 1;
 }

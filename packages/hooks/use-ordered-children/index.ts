@@ -1,25 +1,35 @@
-import type { VNodeChild, ComponentInternalInstance } from "vue";
-import { shallowRef } from "vue";
+import {
+  ComponentInternalInstance,
+  VNode,
+  VNodeNormalizedChildren,
+  isVNode,
+  shallowRef
+} from "vue";
+import { ref } from "vue";
 
 export const useOrderedChildren = <T extends { uid: number }>(
   vm: ComponentInternalInstance,
-  childrenCompnentName: string
+  componentName: string
 ) => {
-  // todo
   const children: Record<number, T> = {};
-  const orderChildren = shallowRef<T[]>([]);
-
-  const addChildren = (child: T) => {
+  const orderedChildren = shallowRef<T[]>([]);
+  function getOrderChldren(
+    vm: ComponentInternalInstance,
+    componentName: string,
+    child: Record<number, T>
+  ) {
+    // TODO:
+  }
+  function addChildren(child: T) {
     children[child.uid] = child;
-  };
-  const removeChildren = (uid: number) => {
-    delete children[uid];
-    orderChildren.value = orderChildren.value.filter(
-      child => child.uid !== uid
-    );
-  };
+    // orderedChildren.value = getOrderChldren(vm, componentName, children);
+  }
+  function removeChildre() {
+    // TODO:
+  }
   return {
-    children: orderChildren,
-    addChildren
+    children: orderedChildren,
+    addCHildren: addChildren,
+    removeChildre
   };
 };

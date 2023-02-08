@@ -12,13 +12,15 @@
     "forceConsistentCasingInFileNames": true,
     "useDefineForClassFields": true,
     "sourceMap": true,
-    "baseUrl": ".",
+    "baseUrl": "./packages",
     "types": ["node"],
     "paths": {
-      "@/*": ["src/*"]
+      "@ui/*": ["./ui/*"],
+      "@components/*": ["./ui/components/*"],
+      "@yu-icon/*": ["./yu-icon/*"]
     },
-    "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
+    "lib": []
   },
-  "include": ["./packages/**/*", "./pac", "./src/**/*"],
+  "include": ["./packages/**/*", "./src/**/*"],
   "exclude": ["node_modules", "./src/**/app.vue"]
 }

@@ -1,15 +1,18 @@
 import { defineConfig } from "vite";
+import generateJson from "rollup-plugin-generate-package-json";
 import { createEntry } from "../utils/createEntryMap";
 import {
   resolvePackagePath,
   baseDistPath,
   getPackageJson
 } from "../utils/getPackagePath";
+
 import { getViteBasePlugin } from "./basePlugin";
 
 const { name, module } = getPackageJson("ui");
 const pkgPath = resolvePackagePath(name);
-
+const yuIconPath = resolvePackagePath("yu-icon");
+const hookPath = resolvePackagePath("hooks");
 export default defineConfig({
   build: {
     lib: {
@@ -39,8 +42,23 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      "@": pkgPath
+      "@components": `${pkgPath}/component`,
+      "@ui": pkgPath,
+      "@yu-icon": yuIconPath,
+      hooks: hookPath
     }
   },
-  plugins: getViteBasePlugin()
+  plugins: [
+    getViteBasePlugin(),
+    generateJson({
+      inputFolder: pkgPath,
+      outFolder: baseDistPath,
+      baseContents: ({ name, description, version }) => ({
+        name,
+        version,
+        description
+      })
+    })
+  ],
+  clearScreen: false
 });

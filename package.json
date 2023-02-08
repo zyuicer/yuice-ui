@@ -6,12 +6,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint --ext .ts,.js,.tsx,.jsx --fix --quiet ./packages",
-    "build": "pnpm -r --filter ui run build:ui && pnpm -r --filter styles run build:styles",
     "build:shared": "pnpm -r --filter shared run build:shared",
     "build:style": "rollup --config scripts/rollup/style.config.js --bundleConfigAsCjs",
     "serve:vite": "vite serve --config vite.config.js",
     "serve": "webpack serve --config webpack.config.js",
-    "build:ui": "vite build --config scripts/vite/ui.config.js"
+    "build:ui": "vite build --config scripts/vite/ui.config.js",
+    "build": "npm-run-all build:ui build:style",
+    "build:icon": "vite build --config scripts/vite/yuIcon.config.js"
   },
   "files": [
     "lib"
@@ -46,12 +47,14 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^9.8.0",
     "husky": "^8.0.3",
+    "npm-run-all": "^4.1.5",
     "postcss": "^8.4.20",
     "postcss-loader": "^7.0.2",
     "postcss-preset-env": "^7.8.3",
     "prettier": "^2.8.1",
     "rimraf": "^3.0.2",
     "rollup": "^3.9.1",
+    "rollup-plugin-generate-package-json": "^3.2.0",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-terser": "^7.0.2",
     "sass": "^1.57.1",
@@ -60,7 +63,7 @@
     "style-loader": "^3.3.1",
     "ts-loader": "^9.4.2",
     "tslib": "^2.4.1",
-    "typescript": "^4.9.4",
+    "typescript": "^4.9.5",
     "unplugin-vue-define-options": "^1.1.4",
     "vite": "^4.0.4",
     "vue-loader": "^17.0.1",

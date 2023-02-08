@@ -1,7 +1,7 @@
 {
   "name": "ui",
   "version": "1.0.0",
-  "description": "",
+  "description": "a vue3 component library",
   "main": "index.ts",
   "module": "index.ts",
   "scripts": {

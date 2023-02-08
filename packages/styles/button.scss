@@ -42,7 +42,6 @@
     @include variable.changeBC(base.$success-1);
   }
 }
-
 .yu-button--primary {
   color: font.$normalText;
   background-color: base.$primary;
@@ -71,7 +70,6 @@
     @include variable.changeBC(base.$danger-1);
   }
 }
-
 .yu-button--warning {
   color: font.$normalText;
   background-color: base.$warning;
@@ -86,7 +84,6 @@
     @include variable.changeBC(base.$warning-1);
   }
 }
-
 .yu-button--normal {
   color: font.$regularText;
   @include border.b();
@@ -200,7 +197,14 @@
     }
   }
 }
-
+// round
+.yu-button-is-round {
+  color: font.$normalText;
+  border-radius: var(--yu-border-raduis-round);
+  &.yu-button--normal {
+    color: font.$regularText;
+  }
+}
 // size
 .yu-button-default {
   @include variable.buttonDefaultSize();
@@ -213,3 +217,5 @@
 .yu-button-large {
   @include variable.buttonLargeSize();
 }
+
+// help

@@ -1,6 +1,6 @@
 import type { ExtractPropTypes, PropType } from "vue";
 import { buildProps } from "../../../utils/build-props";
-import { isNumberEvery } from "@/utils/verify-type";
+import { isNumberEvery } from "@ui/utils/verify-type";
 export const carouselProps = buildProps({
   interval: {
     type: Number,
@@ -19,8 +19,7 @@ export const carouselProps = buildProps({
     default: "hover"
   },
   indicatorPosition: {
-    type: String as PropType<"outside" | "none">,
-    default: "outside"
+    type: String as PropType<"outside" | "none">
   },
   loop: {
     type: Boolean,
@@ -29,6 +28,10 @@ export const carouselProps = buildProps({
   pauseOnHover: {
     type: Boolean,
     default: true
+  },
+  initialIndex: {
+    type: Number,
+    default: 0
   },
   type: {
     type: String as PropType<"card">
@@ -39,3 +42,4 @@ export const carouselEmits = {
 };
 export type CarouselPropsType = ExtractPropTypes<typeof carouselProps>;
 export type CarouselEmitsType = typeof carouselEmits;
+export const COMPONENT_NAME = "YuCarousel";

@@ -1,4 +1,111 @@
+@use "./border.scss" as border;
+@use "./background.scss" as background;
+@use "./font.scss" as font;
+@use "./base.scss" as base;
+@use "./variable.scss" as variable;
+@use "./init.scss" as init;
 // base
 .yu-carousel {
-  transition: all var(--yu-carousel-transition, 3000) ease;
+  position: relative;
+  overflow: hidden;
+}
+.yu-carousel__arrow {
+  height: 36px;
+  width: 36px;
+  padding: 0px;
+  margin: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.2s linear;
+  z-index: 9;
+  cursor: pointer;
+  @include border.b(rgba($color: #ccc, $alpha: 0.2));
+  @include border.radius(50%);
+  @include variable.changeBC(rgba($color: #ccc, $alpha: 0.2));
+  &:hover {
+    @include variable.changeBC(rgba($color: #000, $alpha: 0.2));
+  }
+}
+.yu-carousel__arrow--left {
+  @include init.initTransfromLeftWithTop(3%, 50%);
+}
+.yu-carousel__arrow--right {
+  @include init.initTransfromRightWithTop(3%, 50%);
+}
+
+// transition
+.carousel-arrow-left-enter-from {
+  left: 0px;
+  opacity: 0;
+}
+.carousel-arrow-left-enter-active {
+  transition: all 0.2s ease;
+}
+
+.carousel-arrow-right-enter-from {
+  right: 0%;
+  opacity: 0;
+}
+.carousel-arrow-right-enter-active {
+  transition: all 0.2s ease;
+}
+
+// leave
+.carousel-arrow-left-leave-to {
+  left: 0px;
+  opacity: 0;
+}
+.carousel-arrow-left-leave-active {
+  transition: all 0.2s ease;
+}
+
+.carousel-arrow-right-leave-to {
+  right: 0%;
+  opacity: 0;
+}
+.carousel-arrow-right-leave-active {
+  transition: all 0.2s ease;
+}
+
+// inderator
+.yu-indicator-list {
+  margin: 0;
+  display: flex;
+  padding: 0;
+  position: absolute;
+  left: 50%;
+  bottom: 0%;
+  transform: translateX(-50%);
+  z-index: 999;
+}
+.yu-indicator-list-outside {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 999;
+}
+.yu-indicator-item {
+  flex-shrink: 0;
+  width: 30px;
+  height: 2px;
+  padding: 12px 4px;
+  display: block;
+  cursor: pointer;
+  .yu-carousel__button {
+    transition: all 0.25s linear;
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: #00000080;
+    margin: 0;
+    padding: 0;
+    &.active {
+      background-color: #ffffff;
+    }
+    &:hover {
+      background-color: #ffffff;
+    }
+  }
 }

@@ -1,5 +1,5 @@
 <template>
-  <button class="yu-button" :class="[yuType, yuSize, isPlain]">
+  <button class="yu-button" :class="[yuType, yuSize, isPlain, isRound]">
     <span><slot></slot></span>
   </button>
 </template>
@@ -21,16 +21,22 @@ export default defineComponent({
     plain: {
       type: Boolean,
       default: false
+    },
+    round: {
+      type: Boolean,
+      default: false
     }
   },
   setup(props) {
     const yuType = computed(() => "yu-button--" + props.type);
     const yuSize = computed(() => "yu-button-" + props.size);
     const isPlain = computed(() => (props.plain ? "yu-button-is-plain" : ""));
+    const isRound = computed(() => (props.round ? "yu-button-is-round" : ""));
     return {
       yuType,
       yuSize,
-      isPlain
+      isPlain,
+      isRound
     };
   }
 });

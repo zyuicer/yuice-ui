@@ -4,6 +4,7 @@ scripts/flow/*/.flowconfig
 .flowconfig
 test.*
 script/webpack/**/*
+hooks/**/*
 webpack.**
 *~
 *.pyc

@@ -25,5 +25,6 @@ export function createEntry(isProduction = false, pkgName, options = {}) {
     : {
         main: "./src/main.js"
       };
+  console.log(entry);
   return entry;
 }
