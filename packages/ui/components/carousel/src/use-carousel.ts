@@ -189,7 +189,7 @@ export function useCarousel(
     activeIndex.value = index;
   }
   provide(CAROUSEL_PROVIDE_KEY, {
-    addItem: addMarkItem,
+    addMarkItem,
     isNext,
     isStart,
     transitionInterval
