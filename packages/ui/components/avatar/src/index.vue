@@ -16,6 +16,7 @@
 <script lang="ts">
 // core
 import { computed, defineComponent } from "vue";
+import { useSlots } from "vue";
 import type { PropType, CSSProperties } from "vue";
 import type { ShapeOptions, ImgFitOptions } from "../../../types/base.type";
 // utils

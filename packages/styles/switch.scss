@@ -1,0 +1,56 @@
+@use "./base.scss" as base;
+@mixin CreateYuSwitchBaseStyle($width: 40px, $height: 20px) {
+  width: $width;
+  height: $height;
+}
+
+@mixin CreateYuSwitchCoreStyle(
+  $width: 100%,
+  $height: 100%,
+  $actionWidth: 20px,
+  $actionHeight: 100%,
+  $actionBG: base.$primary
+) {
+  > .yu-switch__core {
+    width: $width;
+    height: $height;
+    background-color: var(--yu-switch-off-color, base.$info-3);
+    display: inline-flex;
+    overflow: hidden;
+    border-radius: 10px;
+    box-sizing: border-box;
+    position: relative;
+    transition: all 0.25s linear;
+    border: 1px solid base.$info-3;
+    .yu-switch__action {
+      width: $actionWidth;
+      height: $actionHeight;
+      position: absolute;
+      transform: translateY(-50%);
+      background-color: base.$white;
+      top: 50%;
+      border-radius: 50%;
+      transition: all 0.25s linear;
+      &.yu-switch__off {
+        left: 0%;
+      }
+      &.yu-switch__on {
+        left: calc(100% - $actionWidth - 1px);
+      }
+    }
+    &.yu-switch__core__active {
+      background-color: var(--yu-switch-on-color, $actionBG);
+    }
+  }
+}
+
+.yu-switch {
+  display: inline-block;
+  transition: all 1.25s linear;
+  cursor: pointer;
+}
+
+.yu-switch-default {
+  @include CreateYuSwitchBaseStyle();
+  @include CreateYuSwitchCoreStyle(100%, 100%, 16px, 16px);
+}

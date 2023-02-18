@@ -12,3 +12,4 @@ const Api = {
   ...components
 };
 export default Api;
+export const isDark = "dark";

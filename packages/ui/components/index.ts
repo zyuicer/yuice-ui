@@ -12,3 +12,4 @@ export * from "./carousel-item";
 export * from "./icon";
 export * from "./alert";
 export * from "./image";
+export * from "./switch";

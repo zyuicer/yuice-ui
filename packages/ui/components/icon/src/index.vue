@@ -7,26 +7,15 @@
 import { COMPONENT_NAME, useIcon } from "./use-icon";
 import { IconProps, iconProps } from "./icon";
 import { computed, onMounted } from "vue";
+import { convertStringToNumber } from "@ui/utils/convertNumbeWithString";
 defineOptions({
   name: COMPONENT_NAME
 });
 const props = defineProps(iconProps);
 const colorVal = computed(() => (props.color ? props.color : ""));
-const sizeVal = computed(() => {
-  const type = typeof props.size;
-  let size = props.size;
-  if (!size) {
-    return "";
-  } else {
-    if (type === "number") {
-      return `${size}px`;
-    } else {
-      return size;
-    }
-  }
-});
+const sizeVal = props.size ? convertStringToNumber(props.size, "px") : "";
 const newPrps: IconProps = {
-  size: sizeVal.value,
+  size: sizeVal,
   color: colorVal.value
 };
 

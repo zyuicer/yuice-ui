@@ -2,7 +2,16 @@
   <YuContainer>
     <YuHeader>header</YuHeader>
     <YuContainer>
-      <YuAside width="200px"><div class="aside">aside</div></YuAside>
+      <YuAside width="200px">
+        <div class="aside">
+          <YuAvatar> 1 </YuAvatar>
+          <YuSwitch
+            v-model="isActive"
+            style="--yu-switch-on-color: #ff4949; --yu-switch-off-color: #000"
+          ></YuSwitch>
+          <YuSwitch v-model="isActive"></YuSwitch>
+        </div>
+      </YuAside>
       <YuMain>
         <YuRow justify="center" :gutter="20">
           <YuCol :span="4" class="item">
@@ -47,6 +56,7 @@
   </div>
 </template>
 <script>
+import { ref } from "vue";
 import {
   YuButton,
   YuCol,
@@ -58,12 +68,14 @@ import {
   YuAside,
   YuCarousel,
   YuCarouselItem,
-  YuImage
+  YuImage,
+  YuAvatar,
+  YuSwitch
 } from "../lib";
 export default {
   components: {
     YuButton: YuButton,
-    // YuAvatar,
+    YuAvatar,
     YuCol,
     YuRow,
     YuHeader,
@@ -73,18 +85,21 @@ export default {
     YuAside,
     YuCarousel,
     YuImage,
-    YuCarouselItem
+    YuCarouselItem,
+    YuSwitch
   },
   setup() {
     const handlerTest = () => {
       console.log("ok");
     };
     function onChange(num, pre) {
-      console.log(num, pre);
+      //
     }
+    const isActive = ref(false);
     return {
       handlerTest,
-      onChange
+      onChange,
+      isActive
     };
   }
 };
@@ -95,6 +110,16 @@ export default {
   height: 200px;
   width: 100%;
   background-color: red;
+  transition: all 0.2s ease;
+  position: relative;
+}
+.tt {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  left: 0px;
+  top: 50%;
+  background-color: #fff;
 }
 .item {
   height: 80px;
