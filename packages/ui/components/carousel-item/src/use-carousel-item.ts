@@ -1,7 +1,7 @@
 import { Ref, computed, inject, ref, watch } from "vue";
 import { CAROUSEL_PROVIDE_KEY } from "shared";
 import { CarouselTransitionMark } from "@ui/types/carsouel.type";
-import { createCustomizeStyle } from "@ui/utils/line-style-flag";
+import { createCustomizeStyle } from "@ui/utils/lineStyleFlag";
 
 export const COMPONENT_NAME = "YuCarouselItem";
 interface CarouselProvide {

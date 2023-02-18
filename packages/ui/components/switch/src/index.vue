@@ -7,12 +7,17 @@ defineOptions({
 });
 const props = defineProps(switchProps);
 const emits = defineEmits(switchEmits);
-const { handleUpdateSwitchChange, switchActiveClass, switchActionClass } =
-  useSwitch(props, emits);
+const {
+  handleUpdateSwitchChange,
+  switchActiveClass,
+  switchActionClass,
+  switchSizeStyle
+} = useSwitch(props, emits);
 </script>
 <template>
   <div
-    class="yu-switch yu-switch-default"
+    class="yu-switch"
+    :class="switchSizeStyle"
     @click="handleUpdateSwitchChange"
   >
     <span class="yu-switch__core" :class="switchActiveClass">

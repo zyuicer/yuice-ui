@@ -76,7 +76,7 @@
 import { computed, useSlots } from "vue";
 import type { CSSProperties } from "vue";
 import { carouselProps, carouselEmits, COMPONENT_NAME } from "./carousel";
-import { createCustomizeStyle } from "../../../utils/line-style-flag";
+import { createCustomizeStyle } from "../../../utils/lineStyleFlag";
 import { useCarousel } from "./use-carousel";
 import { YuIcon } from "@ui/components/icon";
 import ArrowLeft from "@yu-icon/arrowLeft";

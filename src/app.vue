@@ -9,7 +9,7 @@
             v-model="isActive"
             style="--yu-switch-on-color: #ff4949; --yu-switch-off-color: #000"
           ></YuSwitch>
-          <YuSwitch v-model="isActive"></YuSwitch>
+          <YuSwitch v-model="isActive" size="small"></YuSwitch>
         </div>
       </YuAside>
       <YuMain>

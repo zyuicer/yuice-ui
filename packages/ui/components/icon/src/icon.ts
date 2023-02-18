@@ -1,4 +1,4 @@
-import { buildProps } from "@ui/utils/build-props";
+import { buildProps } from "@ui/utils/buildProps";
 import { ExtractPropTypes } from "vue";
 
 export const iconProps = buildProps({

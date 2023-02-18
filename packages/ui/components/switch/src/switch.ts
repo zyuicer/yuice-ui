@@ -1,5 +1,5 @@
 import { YuSizeOptions } from "@ui/types/base.type";
-import { buildProps } from "@ui/utils/build-props";
+import { buildProps } from "@ui/utils/buildProps";
 import { ExtractPropTypes, PropType } from "vue";
 
 export const switchProps = buildProps({

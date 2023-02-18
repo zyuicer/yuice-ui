@@ -1,4 +1,4 @@
-import { buildProps } from "@ui/utils/build-props";
+import { buildProps } from "@ui/utils/buildProps";
 import { isDark } from "@ui/index";
 import { ExtractPropTypes, PropType } from "vue";
 

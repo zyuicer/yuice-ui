@@ -1,6 +1,6 @@
 import type { ExtractPropTypes, PropType } from "vue";
-import { buildProps } from "../../../utils/build-props";
-import { isNumberEvery } from "@ui/utils/verify-type";
+import { buildProps } from "../../../utils/buildProps";
+import { isNumberEvery } from "@ui/utils/verifyType";
 export const carouselProps = buildProps({
   interval: {
     type: Number,
