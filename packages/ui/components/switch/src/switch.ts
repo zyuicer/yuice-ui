@@ -7,6 +7,16 @@ export const switchProps = buildProps({
     type: Boolean,
     default: false
   },
+  disabled: {
+    type: Boolean,
+    default: false
+  },
+  inlinePrompt: {
+    type: Boolean,
+    default: false
+  },
+  activeText: [String],
+  inactiveText: [String],
   size: {
     type: String as PropType<YuSizeOptions>,
     default: "default"

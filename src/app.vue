@@ -10,6 +10,28 @@
             style="--yu-switch-on-color: #ff4949; --yu-switch-off-color: #000"
           ></YuSwitch>
           <YuSwitch v-model="isActive" size="small"></YuSwitch>
+          <YuSwitch v-model="isActive" size="large"></YuSwitch>
+          <YuSwitch
+            v-model="isActive"
+            style="--yu-switch-on-color: #ff4949; --yu-switch-off-color: #ccc"
+            activeText="left"
+            inactiveText="rightit"
+          ></YuSwitch>
+          <YuSwitch
+            v-model="isActive"
+            size="small"
+            style="--yu-switch-on-color: #ff4949; --yu-switch-off-color: #ccc"
+            activeText="left"
+            inactiveText="rightit"
+          ></YuSwitch>
+          <YuSwitch
+            v-model="isActive"
+            disabled
+            size="large"
+            style="--yu-switch-on-color: #ff4949; --yu-switch-off-color: #ccc"
+            activeText="left"
+            inactiveText="rightit"
+          ></YuSwitch>
         </div>
       </YuAside>
       <YuMain>
@@ -21,7 +43,17 @@
           <YuCol :span="4" class="item1">
             <YuButton size="large" type="danger" round>round</YuButton>
           </YuCol>
-          <YuCol :span="4" class="item"> </YuCol>
+          <YuCol :span="4" class="item">
+            <YuSwitch
+              v-model="isActive"
+              inlinePrompt
+              width="60px"
+              disabled
+              style="--yu-switch-on-color: #ff4949; --yu-switch-off-color: #ccc"
+              activeText="超出省略"
+              inactiveText="超出省略"
+            ></YuSwitch>
+          </YuCol>
         </YuRow>
       </YuMain>
     </YuContainer>

@@ -7,21 +7,49 @@ defineOptions({
 });
 const props = defineProps(switchProps);
 const emits = defineEmits(switchEmits);
+
 const {
-  handleUpdateSwitchChange,
   switchActiveClass,
   switchActionClass,
-  switchSizeStyle
+  switchDisabledClass,
+  switchSizeStyle,
+  innerText,
+  switchLineStyle,
+  handleUpdateSwitchChange
 } = useSwitch(props, emits);
 </script>
 <template>
-  <div
-    class="yu-switch"
-    :class="switchSizeStyle"
-    @click="handleUpdateSwitchChange"
-  >
-    <span class="yu-switch__core" :class="switchActiveClass">
+  <div class="yu-switch" :class="[switchSizeStyle, switchDisabledClass]">
+    <span
+      class="yu-switch__label yu-switch__label__left"
+      :class="{ close: !modelValue }"
+      @click="handleUpdateSwitchChange"
+      v-if="activeText && !inlinePrompt"
+    >
+      <span>{{ activeText }}</span>
+    </span>
+    <span
+      class="yu-switch__core"
+      :style="switchLineStyle"
+      :class="[switchActiveClass]"
+      @click="handleUpdateSwitchChange"
+    >
+      <div
+        class="yu-switch__inner"
+        :class="switchActionClass"
+        v-if="inlinePrompt"
+      >
+        <span>{{ innerText }}</span>
+      </div>
       <div class="yu-switch__action" :class="switchActionClass"></div>
+    </span>
+    <span
+      class="yu-switch__label yu-switch__label__right"
+      :class="{ open: modelValue }"
+      @click="handleUpdateSwitchChange"
+      v-if="inactiveText && !inlinePrompt"
+    >
+      <span>{{ inactiveText }}</span>
     </span>
   </div>
 </template>
