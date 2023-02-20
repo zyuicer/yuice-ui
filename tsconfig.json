@@ -19,7 +19,7 @@
       "@components/*": ["./ui/components/*"],
       "@yu-icon/*": ["./yu-icon/*"]
     },
-    "lib": []
+    "lib": ["ES2015", "ES2016", "DOM"]
   },
   "include": ["./packages/**/*", "./src/**/*"],
   "exclude": ["node_modules", "./src/**/app.vue"]

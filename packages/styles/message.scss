@@ -1,0 +1,11 @@
+@use "./base.scss" as base;
+.yu-message {
+  color: base.$danger;
+  position: fixed;
+  top: 0%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-block;
+  padding: 15px 19px;
+  background-color: base.$info;
+}

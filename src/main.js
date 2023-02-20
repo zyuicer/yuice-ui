@@ -13,5 +13,6 @@ import "../lib/styles/carousel.css";
 import "../lib/styles/carousel-item.css";
 import "../lib/styles/icon.css";
 import "../lib/styles/switch.css";
+import "../lib/styles/message.css";
 const app = createApp(App);
 app.mount("#app");

@@ -37,7 +37,9 @@
       <YuMain>
         <YuRow justify="center" :gutter="20">
           <YuCol :span="4" class="item">
-            <YuButton type="warning" size="large" plain>test</YuButton>
+            <YuButton type="warning" @click="hiddenMessage" size="large" plain
+              >关闭message</YuButton
+            >
             <YuButton type="primary" size="large" plain>test</YuButton>
           </YuCol>
           <YuCol :span="4" class="item1">
@@ -102,7 +104,8 @@ import {
   YuCarouselItem,
   YuImage,
   YuAvatar,
-  YuSwitch
+  YuSwitch,
+  YuMessage
 } from "../lib";
 export default {
   components: {
@@ -127,10 +130,17 @@ export default {
     function onChange(num, pre) {
       //
     }
+    const instance = YuMessage({
+      message: "test"
+    });
     const isActive = ref(false);
+    const hiddenMessage = () => {
+      instance.handler.close();
+    };
     return {
       handlerTest,
       onChange,
+      hiddenMessage,
       isActive
     };
   }
