@@ -1,6 +1,6 @@
 <template>
   <button class="yu-button" :class="[yuType, yuSize, isPlain, isRound]">
-    <span><slot></slot></span>
+    <span ><slot></slot></span>
   </button>
 </template>
 <script lang="ts">

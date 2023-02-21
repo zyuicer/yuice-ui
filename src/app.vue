@@ -36,11 +36,13 @@
       </YuAside>
       <YuMain>
         <YuRow justify="center" :gutter="20">
-          <YuCol :span="4" class="item">
+          <YuCol :span="6" class="item">
             <YuButton type="warning" @click="hiddenMessage" size="large" plain
               >关闭message</YuButton
             >
-            <YuButton type="primary" size="large" plain>test</YuButton>
+            <YuButton type="primary" size="large" plain @click="showMessage"
+              >开启message</YuButton
+            >
           </YuCol>
           <YuCol :span="4" class="item1">
             <YuButton size="large" type="danger" round>round</YuButton>
@@ -90,7 +92,7 @@
   </div>
 </template>
 <script>
-import { ref } from "vue";
+import { h, ref } from "vue";
 import {
   YuButton,
   YuCol,
@@ -130,17 +132,23 @@ export default {
     function onChange(num, pre) {
       //
     }
-    const instance = YuMessage({
-      message: "test"
-    });
+    let instance;
+    const showMessage = () => {
+      instance = YuMessage({
+        message: h("div", {}, "test11")
+      });
+    };
+
     const isActive = ref(false);
     const hiddenMessage = () => {
+      console.log(instance);
       instance.handler.close();
     };
     return {
       handlerTest,
       onChange,
       hiddenMessage,
+      showMessage,
       isActive
     };
   }

@@ -1,11 +1,27 @@
 @use "./base.scss" as base;
 .yu-message {
-  color: base.$danger;
   position: fixed;
-  top: 0%;
   left: 50%;
+  min-width: 138px;
   transform: translateX(-50%);
   display: inline-block;
   padding: 15px 19px;
-  background-color: base.$info;
+  border-radius: 5px;
+  overflow: hidden;
+  z-index: 9;
+  top: 0px;
+  transition: all 0.25s linear;
+}
+
+.yu-message-info {
+  color: base.$info-2;
+  background-color: base.$info-3;
+}
+.yu-message-transition-enter-from {
+  opacity: 0;
+  top: 0px !important;
+}
+.yu-message-transition-leave-to {
+  top: 0px !important;
+  opacity: 0;
 }

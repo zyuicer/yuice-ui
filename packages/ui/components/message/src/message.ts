@@ -3,7 +3,7 @@ import { buildProps } from "@ui/utils/buildProps";
 import { mutable } from "@ui/utils/typescript";
 import { definePropType } from "@ui/utils/vue/props/runtime";
 import type { YuTypeOptions } from "@ui/types/base.type";
-import type { ExtractPropTypes, VNode } from "vue";
+import type { ComponentInternalInstance, ExtractPropTypes, VNode } from "vue";
 import type { Mutable } from "@ui/utils/typescript";
 
 export const COMPONENT_NAME = "YuMessage";
@@ -11,9 +11,11 @@ export const COMPONENT_NAME = "YuMessage";
 export const messageDefault = mutable({
   id: "",
   appendTo: isClient ? document.body : (undefined as never),
-  message: ""
+  message: "",
+  offset: 16,
+  duration: 3000
 });
-const messageProps = buildProps({
+export const messageProps = buildProps({
   message: {
     type: definePropType<string | VNode | (() => VNode)>([
       String,
@@ -22,6 +24,10 @@ const messageProps = buildProps({
     ]),
     default: messageDefault.message
   },
+  duration: {
+    type: Number,
+    default: messageDefault.duration
+  },
   id: {
     type: String,
     default: messageDefault.id
@@ -29,6 +35,14 @@ const messageProps = buildProps({
   type: {
     type: definePropType<YuTypeOptions>([String]),
     default: "info"
+  },
+  offset: {
+    type: Number,
+    default: messageDefault.offset
+  },
+  onClose: {
+    type: definePropType<() => void>([Function]),
+    default: () => ({})
   }
 });
 
@@ -43,3 +57,13 @@ export type MessageOptions = Partial<
 >;
 
 export type MessageParams = MessageOptions | MessageOptions["message"];
+
+export type MessageHandler = {
+  close: () => void;
+};
+export type MessageContext = {
+  id: string;
+  vm: ComponentInternalInstance;
+  vnode: VNode;
+  handler: MessageHandler;
+};
