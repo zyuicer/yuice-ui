@@ -66,4 +66,5 @@ export type MessageContext = {
   vm: ComponentInternalInstance;
   vnode: VNode;
   handler: MessageHandler;
+  props: MessageOptions;
 };

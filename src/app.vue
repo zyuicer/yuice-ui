@@ -132,17 +132,16 @@ export default {
     function onChange(num, pre) {
       //
     }
-    let instance;
+    let handler;
     const showMessage = () => {
-      instance = YuMessage({
+      handler = YuMessage({
         message: h("div", {}, "test11")
       });
     };
 
     const isActive = ref(false);
     const hiddenMessage = () => {
-      console.log(instance);
-      instance.handler.close();
+      handler.close();
     };
     return {
       handlerTest,

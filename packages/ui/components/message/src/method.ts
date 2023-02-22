@@ -32,6 +32,9 @@ const createMessage = ({ appendTo, ...options }: MessageOptions) => {
     onClose() {
       onUserClose?.();
       closeMessage(instance);
+    },
+    onDestroy() {
+      render(null, container);
     }
   };
   const node = createVNode(
@@ -55,19 +58,22 @@ const createMessage = ({ appendTo, ...options }: MessageOptions) => {
   };
   const instance: MessageContext = {
     handler,
-    id: "",
+    id,
     vnode: node,
-    vm
+    vm,
+    props
   };
-  instances.push(instance);
+
   return instance;
 };
 
 const message = (options: MessageParams) => {
   const normalized = normalizeOptions(options);
   const instance = createMessage(normalized);
-  return instance;
+  instances.push(instance);
+  return instance.handler;
 };
+
 function closeMessage(instance: MessageContext) {
   const idx = instances.indexOf(instance);
   if (idx === -1) return; // 未找到
