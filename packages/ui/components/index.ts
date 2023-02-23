@@ -14,3 +14,4 @@ export * from "./alert";
 export * from "./image";
 export * from "./switch";
 export * from "./message";
+export * from "./messageBox";

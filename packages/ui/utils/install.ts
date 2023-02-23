@@ -6,3 +6,10 @@ export function withInstallFunction(fn, name) {
   };
   return fn;
 }
+
+export function installFunction(fn) {
+  fn.install = app => {
+    app.component(fn.name, fn);
+  };
+  return fn;
+}

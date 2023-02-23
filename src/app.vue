@@ -45,7 +45,9 @@
             >
           </YuCol>
           <YuCol :span="4" class="item1">
-            <YuButton size="large" type="danger" round>round</YuButton>
+            <YuButton size="large" type="danger" @click="showMessageBox" round
+              >round</YuButton
+            >
           </YuCol>
           <YuCol :span="4" class="item">
             <YuSwitch
@@ -107,7 +109,8 @@ import {
   YuImage,
   YuAvatar,
   YuSwitch,
-  YuMessage
+  YuMessage,
+  YuMessageBox
 } from "../lib";
 export default {
   components: {
@@ -139,7 +142,11 @@ export default {
         type: "warning"
       });
     };
-
+    const showMessageBox = () => {
+      YuMessageBox({
+        title: "test"
+      });
+    };
     const isActive = ref(false);
     const hiddenMessage = () => {
       handler.close();
@@ -149,7 +156,8 @@ export default {
       onChange,
       hiddenMessage,
       showMessage,
-      isActive
+      isActive,
+      showMessageBox
     };
   }
 };
