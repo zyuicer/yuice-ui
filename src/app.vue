@@ -135,7 +135,8 @@ export default {
     let handler;
     const showMessage = () => {
       handler = YuMessage({
-        message: h("div", {}, "test11")
+        message: h("div", {}, "test11"),
+        type: "warning"
       });
     };
 
