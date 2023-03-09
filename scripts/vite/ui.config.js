@@ -6,6 +6,7 @@ import {
   baseDistPath,
   getPackageJson
 } from "../utils/getPackagePath";
+import dts from "vite-plugin-dts";
 
 import { getViteBasePlugin } from "./basePlugin";
 
